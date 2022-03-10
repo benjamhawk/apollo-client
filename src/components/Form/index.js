@@ -1,10 +1,11 @@
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
+import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
 import { gql, useMutation } from "@apollo/client";
 import { GET_LINKS_QUERY } from "../SlugList";
 import { LoadingBackdrop } from "../LoadingBackdrop";
-import "./Form.module.css";
+import styles from "./Form.module.css";
 
 // Define mutation
 const SUBMIT_SHORTEN_URL = gql`
@@ -45,30 +46,40 @@ export const Form = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <TextField
-        label="Make your links shorter"
-        variant="outlined"
-        defaultValue=""
-        name="url"
-        value={url}
-        onChange={(e) => {
-          setUrl(e?.target?.value);
-        }}
-      />
-      <TextField
-        label="Custom slug"
-        variant="outlined"
-        name="slug"
-        defaultValue=""
-        value={slug}
-        onChange={(e) => {
-          setSlug(e?.target?.value);
-        }}
-      />
-      <Button type="submit" variant="contained">
-        Shorten URL
-      </Button>
-    </form>
+    <div className={styles.formWrapper}>
+      <pre>
+        {error?.graphQLErrors?.map(({ message }, i) => (
+          <Alert key={i} severity="error">
+            {message}
+          </Alert>
+        ))}
+      </pre>
+
+      <form onSubmit={handleSubmit}>
+        <TextField
+          label="Make your links shorter"
+          variant="outlined"
+          defaultValue=""
+          name="url"
+          value={url}
+          onChange={(e) => {
+            setUrl(e?.target?.value);
+          }}
+        />
+        <TextField
+          label="Custom slug"
+          variant="outlined"
+          name="slug"
+          defaultValue=""
+          value={slug}
+          onChange={(e) => {
+            setSlug(e?.target?.value);
+          }}
+        />
+        <Button type="submit" variant="contained">
+          Shorten URL
+        </Button>
+      </form>
+    </div>
   );
 };

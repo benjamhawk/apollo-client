@@ -1,4 +1,18 @@
 form {
   display: grid;
   justify-content: center;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.formWrapper {
+  background: #00000020;
+  padding: 2rem;
+  border-radius: 3px;
+}
+
+@media (max-width: 640px) {
+  form {
+    grid-template-columns: 1fr;
+  }
 }
