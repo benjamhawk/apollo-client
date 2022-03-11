@@ -82,7 +82,7 @@ export const Form = () => {
             setSlug(e?.target?.value);
           }}
         />
-        <Button type="submit" variant="contained">
+        <Button type="submit" variant="contained" className={styles.button}>
           Shorten URL
         </Button>
       </form>

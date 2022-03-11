@@ -6,8 +6,9 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import { Form } from "./components/Form";
 import { SlugList } from "./components/SlugList";
-import styles from "./App.module.css";
+import "./App.module.css";
 import LinkSharpIcon from "@mui/icons-material/LinkSharp";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export default function App() {
   return (
@@ -17,13 +18,17 @@ export default function App() {
         <h1>
           URL Shortener <LinkSharpIcon />
         </h1>
+        <a href="/">
+          <AccountCircleIcon fontSize="large" />
+        </a>
       </header>
 
       <Container
         sx={{
           marginTop: 0,
           padding: "1rem",
-          borderRadius: 5
+          borderRadius: 5,
+          background: "#F4F7FB"
         }}
       >
         <Box sx={{ height: "100vh" }}>

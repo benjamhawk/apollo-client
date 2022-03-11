@@ -6,14 +6,19 @@ form {
   align-items: start;
 }
 
+.button {
+  background: var(--button);
+}
+
 .formWrapper {
-  background: #00000020;
+  background: var(--background-2);
   padding: 3rem 10rem;
   border-radius: 3px;
 }
 
 .input input {
-  background: white;
+  background: var(--primary);
+  border-radius: 5px;
 }
 
 @media (max-width: 640px) {

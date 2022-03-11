@@ -1,6 +1,20 @@
 header {
-  display: grid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0 1rem;
+  color: var(--primary);
+  height: 6rem;
+}
+
+header a {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: #f4f7fb;
+  text-decoration: none;
+  font-size: 1.25rem;
+  text-transform: uppercase;
 }
 
 h1 {
@@ -14,5 +28,5 @@ h1 {
 h2 {
   font-weight: 300;
   font-size: 2.5rem;
-  color: #607d8b;
+  color: var(--title);
 }
