@@ -1,13 +1,13 @@
 import "./styles.css";
 import React, { ErrorBoundary } from "react";
 
-import { Container } from "@mui/material";
+import { Container, Link } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
-import Box from "@mui/material/Box";
 import { Form } from "./components/Form";
 import { SlugList } from "./components/SlugList";
 import styles from "./App.module.css";
 import LinkSharpIcon from "@mui/icons-material/LinkSharp";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export default function App() {
   return (
@@ -17,24 +17,37 @@ export default function App() {
         <h1>
           URL Shortener <LinkSharpIcon />
         </h1>
+        <a href="/">
+          <AccountCircleIcon fontSize="large" />
+        </a>
       </header>
 
-      <Container
-        sx={{
-          marginTop: 0,
-          padding: "1rem",
-          borderRadius: 5
-        }}
-      >
-        <Box sx={{ height: "100vh" }}>
-          <h2>Improve Your Brand With Shorter Links</h2>
+      <Container className={styles.container}>
+        <section className={styles.tagLineContainer}>
+          <h2>
+            Your Brand on Your Links
+            <LinkSharpIcon
+              style={{
+                fontSize: "5rem"
+              }}
+            />
+          </h2>
+          <img
+            src="/person.png"
+            alt="video screenshot of guy looking confused"
+          />
           <p>
-            Somer more fancy tagline here that will really want to make people
-            use this product{" "}
+            Url-Shortener is the industry-leading link management platform to
+            brand, track and share short URLs using a custom domain name
           </p>
-          <Form />
-          <SlugList />
-        </Box>
+        </section>
+        <Form />
+        <SlugList />
+        <footer>
+          <Link href="/">Terms & Conditons</Link>
+          <Link href="/">Privacy Policy</Link>
+          <Link href="/">Cookie Policy</Link>
+        </footer>
       </Container>
     </div>
   );

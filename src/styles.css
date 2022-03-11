@@ -1,4 +1,13 @@
+:root {
+  --primary: #f4f7fb;
+  --title: #0d1117;
+  --background: #0d1117;
+  --background-2: #00000020;
+  --button: #212733;
+}
+
 .App {
   font-family: sans-serif;
   text-align: center;
+  background: var(--background);
 }

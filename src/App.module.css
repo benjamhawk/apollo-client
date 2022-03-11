@@ -1,6 +1,20 @@
 header {
-  display: grid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0 1rem;
+  color: var(--primary);
+  height: 6rem;
+}
+
+header a {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: #f4f7fb;
+  text-decoration: none;
+  font-size: 1.25rem;
+  text-transform: uppercase;
 }
 
 h1 {
@@ -11,8 +25,76 @@ h1 {
   align-items: center;
 }
 
-h2 {
-  font-weight: 300;
+.tagLineContainer {
+  display: grid;
+}
+
+.container {
+  margin-top: 0;
+  padding: 1rem;
+  border-radius: 5px;
+  background: var(--primary);
+  display: grid;
+}
+
+.tagLineContainer {
+  display: grid;
+  align-items: center;
+  justify-items: start;
+  padding-left: 1rem;
+}
+
+.tagLineContainer h2 {
+  align-self: end;
+  display: flex;
+  gap: 1rem;
+  font-weight: 500;
   font-size: 2.5rem;
-  color: #607d8b;
+  color: var(--title);
+  align-items: center;
+  text-align: start;
+}
+
+.tagLineContainer p {
+  align-self: start;
+  text-align: start;
+}
+
+.tagLineContainer img {
+  grid-row: 1/3;
+  grid-column: 2/3;
+  width: 25rem;
+  margin: 2rem;
+}
+
+footer {
+  background: var(--background-2);
+  padding: 2rem 4rem;
+  display: grid;
+  grid-gap: 1rem;
+  grid-auto-flow: column;
+  width: 100%;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+  .tagLineContainer img {
+    grid-column: 1/-1;
+    width: 30rem;
+    justify-self: center;
+  }
+
+  .tagLineContainer p,
+  .tagLineContainer h2 {
+    text-align: center;
+    justify-self: center;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+  }
 }

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
-import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
 import { gql, useMutation } from "@apollo/client";
 import { GET_LINKS_QUERY } from "../SlugList";
@@ -23,43 +22,42 @@ export const Form = () => {
   const [url, setUrl] = useState("");
   const [slug, setSlug] = useState("");
 
-  const [shortenUrlMutation, { data, loading, error }] = useMutation(
+  const [shortenUrlMutation, { loading, error }] = useMutation(
     SUBMIT_SHORTEN_URL,
     {
       variables: { url, slug },
       refetchQueries: [{ query: GET_LINKS_QUERY }]
     }
   );
+  const isError = error?.graphQLErrors?.length > 0;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    shortenUrlMutation({
-      variables: {
-        url,
-        slug
-      }
-    });
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      await shortenUrlMutation({
+        variables: {
+          url,
+          slug
+        }
+      });
+      setUrl("");
+      setSlug("");
+    } catch (err) {
+      console.error(err.message);
+    }
   };
-
-  if (loading) {
-    return <LoadingBackdrop />;
-  }
 
   return (
     <div className={styles.formWrapper}>
-      <pre>
-        {error?.graphQLErrors?.map(({ message }, i) => (
-          <Alert key={i} severity="error">
-            {message}
-          </Alert>
-        ))}
-      </pre>
-
+      {loading && <LoadingBackdrop />}
       <form onSubmit={handleSubmit}>
         <TextField
+          className={styles.input}
           label="Make your links shorter"
           variant="outlined"
           defaultValue=""
+          size="small"
+          required
           name="url"
           value={url}
           onChange={(e) => {
@@ -67,16 +65,26 @@ export const Form = () => {
           }}
         />
         <TextField
+          className={styles.input}
           label="Custom slug"
           variant="outlined"
           name="slug"
+          size="small"
           defaultValue=""
           value={slug}
+          error={isError}
+          helperText={
+            isError
+              ? error?.graphQLErrors?.map((error, i) => {
+                  return <p>{error?.message}</p>;
+                })
+              : ""
+          }
           onChange={(e) => {
             setSlug(e?.target?.value);
           }}
         />
-        <Button type="submit" variant="contained">
+        <Button type="submit" variant="contained" className={styles.button}>
           Shorten URL
         </Button>
       </form>
