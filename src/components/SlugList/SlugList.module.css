@@ -1,0 +1,11 @@
+.list {
+  display: grid;
+  justify-content: center;
+}
+
+.listItem {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 1.5rem;
+  justify-items: center;
+}
