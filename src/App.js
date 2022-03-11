@@ -1,7 +1,7 @@
 import "./styles.css";
 import React, { ErrorBoundary } from "react";
 
-import { Container } from "@mui/material";
+import { Container, Link } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Form } from "./components/Form";
 import { SlugList } from "./components/SlugList";
@@ -43,6 +43,11 @@ export default function App() {
         </section>
         <Form />
         <SlugList />
+        <footer>
+          <Link href="/">Terms & Conditons</Link>
+          <Link href="/">Privacy Policy</Link>
+          <Link href="/">Cookie Policy</Link>
+        </footer>
       </Container>
     </div>
   );

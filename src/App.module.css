@@ -67,6 +67,19 @@ h1 {
   margin: 2rem;
 }
 
+footer {
+  background: var(--background-2);
+  padding: 2rem 4rem;
+  display: grid;
+  grid-gap: 1rem;
+  grid-auto-flow: column;
+  width: 100%;
+}
+
+footer a {
+  text-decoration: none;
+}
+
 @media (max-width: 1024px) {
   .tagLineContainer img {
     grid-column: 1/-1;
@@ -78,5 +91,10 @@ h1 {
   .tagLineContainer h2 {
     text-align: center;
     justify-self: center;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
   }
 }
