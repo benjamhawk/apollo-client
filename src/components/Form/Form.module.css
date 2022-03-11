@@ -3,12 +3,17 @@ form {
   justify-content: center;
   grid-template-columns: 2fr 1fr 1fr;
   grid-gap: 1rem;
+  align-items: start;
 }
 
 .formWrapper {
   background: #00000020;
-  padding: 2rem;
+  padding: 3rem 10rem;
   border-radius: 3px;
+}
+
+.input input {
+  background: white;
 }
 
 @media (max-width: 640px) {
