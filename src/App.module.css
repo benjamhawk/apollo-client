@@ -26,7 +26,46 @@ h1 {
 }
 
 h2 {
-  font-weight: 300;
+  display: flex;
+  gap: 1rem;
+  font-weight: 500;
   font-size: 2.5rem;
   color: var(--title);
+  align-items: center;
+}
+
+.tagLineContainer {
+  display: grid;
+}
+
+.container {
+  margin-top: 0;
+  padding: 1rem;
+  border-radius: 5px;
+  background: var(--primary);
+  display: grid;
+}
+
+.tagLineContainer {
+  display: grid;
+
+  align-items: center;
+  justify-items: start;
+  padding-left: 1rem;
+}
+
+.tagLineContainer h2 {
+  align-self: end;
+}
+
+.tagLineContainer p {
+  align-self: start;
+  text-align: start;
+}
+
+.tagLineContainer img {
+  grid-row: 1/3;
+  grid-column: 2/3;
+  width: 25rem;
+  margin: 2rem;
 }

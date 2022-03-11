@@ -6,7 +6,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import { Form } from "./components/Form";
 import { SlugList } from "./components/SlugList";
-import "./App.module.css";
+import styles from "./App.module.css";
 import LinkSharpIcon from "@mui/icons-material/LinkSharp";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
@@ -23,23 +23,27 @@ export default function App() {
         </a>
       </header>
 
-      <Container
-        sx={{
-          marginTop: 0,
-          padding: "1rem",
-          borderRadius: 5,
-          background: "#F4F7FB"
-        }}
-      >
-        <Box sx={{ height: "100vh" }}>
-          <h2>Improve Your Brand With Shorter Links</h2>
+      <Container className={styles.container}>
+        <section className={styles.tagLineContainer}>
+          <h2>
+            Your Brand on Your Links
+            <LinkSharpIcon
+              style={{
+                fontSize: "5rem"
+              }}
+            />
+          </h2>
+          <img
+            src="/person.png"
+            alt="video screenshot of guy looking confused"
+          />
           <p>
-            Somer more fancy tagline here that will really want to make people
-            use this product{" "}
+            Url-Shortener is the industry-leading link management platform to
+            brand, track and share short URLs using a custom domain name
           </p>
-          <Form />
-          <SlugList />
-        </Box>
+        </section>
+        <Form />
+        <SlugList />
       </Container>
     </div>
   );
