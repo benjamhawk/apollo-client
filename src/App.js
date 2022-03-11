@@ -3,7 +3,6 @@ import React, { ErrorBoundary } from "react";
 
 import { Container } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
-import Box from "@mui/material/Box";
 import { Form } from "./components/Form";
 import { SlugList } from "./components/SlugList";
 import styles from "./App.module.css";

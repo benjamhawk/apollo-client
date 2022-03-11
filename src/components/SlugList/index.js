@@ -32,7 +32,7 @@ export const SlugList = () => {
             <ListItem key={link.id} className={styles.listItem}>
               <Link href="/">{link.url}</Link>
               <DoubleArrowIcon />
-              <Link href="/">{`${link.slug}`}</Link>
+              <Link href="/">{`short.com/${link.slug}`}</Link>
             </ListItem>
           );
         })}

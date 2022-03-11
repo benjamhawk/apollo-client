@@ -40,6 +40,8 @@ export const Form = () => {
           slug
         }
       });
+      setUrl("");
+      setSlug("");
     } catch (err) {
       console.error(err.message);
     }
